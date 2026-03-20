@@ -31,8 +31,10 @@ If the user asks to read messages from a specific person:
 ## Send a Message
 
 ```
-link-pulse messages send "<thread-id>" --message "<text>"
+link-pulse messages send '<thread-id>' --message '<text>'
 ```
+
+**IMPORTANT:** Always use single quotes for both `<thread-id>` and `<text>` to avoid bash escaping issues (e.g., `!` becoming `\!` in double quotes).
 
 **CONSENT REQUIRED — NEVER SKIP:**
 - ALWAYS show the drafted message to the user and wait for explicit approval before running the send command.
