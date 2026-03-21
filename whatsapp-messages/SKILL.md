@@ -44,6 +44,17 @@ link-pulse whatsapp send '<chat name>' --message '<text>'
 - Only proceed after the user says yes, confirms, or approves. Treat any ambiguity as a no.
 - WhatsApp's compose box uses Shift+Enter for line breaks. Keep messages on a single line where possible.
 
+## Verify Delivery — NEVER SKIP
+
+After every send command, verify the message was actually delivered:
+
+1. Run `link-pulse whatsapp chats --limit 5`
+2. Check that the sent message appears in the lastMessage snippet for that chat
+3. Only tell the user "message sent" if verification passes
+4. If the message does not appear, tell the user it may not have gone through
+
+Do NOT trust the CLI's `success: true` response alone.
+
 ## Workflow: Summarise and Reply
 
 1. List chats: `link-pulse whatsapp chats --limit 20` (or `--unread` to focus on unread)
@@ -52,6 +63,7 @@ link-pulse whatsapp send '<chat name>' --message '<text>'
 4. Summarise the conversation and flag any action items or things needing a response
 5. If the user wants to reply: draft the message, show it clearly, ask "Shall I send this?"
 6. Send ONLY after the user explicitly confirms
+7. Verify delivery (see above)
 
 ## First-Time Setup
 
