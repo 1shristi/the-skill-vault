@@ -43,9 +43,21 @@ link-pulse messages send '<thread-id>' --message '<text>'
 - LinkedIn's compose box uses Shift+Enter for line breaks. Avoid multi-line messages when possible, or keep them on a single line. Newline characters may render as literal `\n` in the message.
 - To reply to a specific person, first list conversations to find their thread ID.
 
+## Verify Delivery — NEVER SKIP
+
+After every send command, verify the message was actually delivered:
+
+1. Run `link-pulse messages list --limit 5 --no-cache`
+2. Check that the sent message appears in the thread snippet for that person
+3. Only tell the user "message sent" if verification passes
+4. If the message does not appear, tell the user it may not have gone through
+
+Do NOT trust the CLI's `success: true` response alone — it has returned false positives before.
+
 ## Workflow: Find and Message Someone
 
 1. List messages: find the thread ID by participant name
 2. Read the thread: understand the conversation context
 3. Draft a reply: show it to the user and explicitly ask "Shall I send this?"
 4. Send ONLY after user confirms
+5. Verify delivery (see above)
