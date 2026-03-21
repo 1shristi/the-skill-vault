@@ -461,7 +461,7 @@ Ask: "Update the ticket with this rewritten description?"
 
 ## Step 7b: Re-verify and Publish
 
-1. Re-run the 21-check checklist against the rewritten description. All checks should now pass. If any still fail, flag them to the user and ask whether to proceed or iterate.
+1. Re-run the 23-check checklist against the rewritten description. All checks should now pass. If any still fail, flag them to the user and ask whether to proceed or iterate.
 
 2. Construct the review addendum (same format as Step 7's addendum) reflecting the post-rewrite checklist results.
 
