@@ -344,7 +344,7 @@ Branch: <branch-name>
 
 Steps 5b through 8b run when `fix_mode` is true AND the checklist produced Flags or Fails.
 
-If `fix_mode` is true but all 21 checks passed, skip to Step 7b directly (publish passing review, no rewrite needed).
+If `fix_mode` is true but all 23 checks passed, skip to Step 7b directly (publish passing review, no rewrite needed).
 
 ---
 
