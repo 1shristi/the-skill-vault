@@ -519,6 +519,90 @@ If `ticket_format` is `standard`, use the project's `TICKET_STANDARD.md` format 
 - Code References → Implementation Notes (subsection)
 - Verification → Unit Tests
 
+### User Story Format (when output mode is `user-stories`)
+
+Each story file is saved to `{output_dir}/stories/US-{NN}.md`:
+
+```markdown
+## [US-{NN}] {Story Title}
+
+### User Story
+**As a** {persona — role, context, what they care about}
+**I want to** {action — what they're trying to do}
+**So that** {outcome — the business value or personal benefit}
+
+### Context & Motivation
+{Why this matters to the user. What problem exists today. What happens if this isn't built.
+Include any observations from the exploration that inform priority — e.g., "this is the first
+screen users see", "3 separate call-to-actions point here", "this is where AI-generated
+content surfaces for human review".}
+
+### User Flow
+{Step-by-step walkthrough of how the user accomplishes this goal in the app:
+1. User navigates to /companies
+2. User sees a table of all companies with sortable columns
+3. User clicks a company name to drill into details
+4. ...
+Include which screens are involved and how they connect.}
+
+### Screens Involved
+| Screen | URL | Screenshot |
+|--------|-----|------------|
+| Companies List | /companies | `{screenshot path}` |
+| Company Detail | /companies/{slug} | `{screenshot path}` |
+
+### What the User Sees
+{For each screen involved, describe what data is displayed, what's interactive,
+and what the user can do. Focus on the user's perspective, not implementation.
+Reference screenshots for visual context.}
+
+### Business Rules & Logic
+{Any rules inferred from the UI:
+- Sorting defaults (e.g., newest first)
+- Filter options and their behavior
+- Status transitions (e.g., task: To Do → Done)
+- AI-generated content and what the user can do with it
+- Permissions or role-based visibility if apparent}
+
+### Acceptance Criteria
+{Numbered, pass/fail from the USER's perspective — not technical:
+1. User can see all companies in a single view with company name, last meeting, and next task
+2. User can sort companies by any column
+3. User can search companies by name
+4. Clicking a company name opens the company detail page
+5. ...}
+
+### Edge Cases & Open Questions
+{Things the PM and engineering team should discuss:
+- What happens with 0 companies? 100+ companies?
+- How does search behave with partial matches?
+- Are there permission differences between roles?
+- Is the AI summary regenerated on each view or cached?
+- Any data observed that seems inconsistent (flag for PM to clarify)}
+
+### Priority & Dependencies
+- **Priority:** {High / Medium / Low}
+- **Depends on:** {US-XX — what must exist first}
+- **Enables:** {US-XX — what this unblocks}
+
+### Engineering Notes
+{Non-prescriptive guidance for the engineering team:
+- API data needed (inferred from what's displayed)
+- Key UI components involved (tables, tabs, cards, badges)
+- Design tokens relevant to this story
+- Any accessibility considerations observed}
+
+### References
+- Screenshots: `{paths}`
+- Related stories: US-XX, US-XX
+- Exploration report: Section {X}
+```
+
+When in `user-stories` mode, the analysis agents (Phase 2) should additionally identify:
+- **User personas** — who uses this app and what do they care about (inferred from the UI: role labels, permission indicators, workflow patterns)
+- **User journeys** — the end-to-end flows a user takes across pages (e.g., "rep reviews calls → drills into company → checks pain points → generates follow-up")
+- **Business value signals** — which features appear most prominent, which have AI assistance, which have the most data density
+
 ### Processing
 
 Detail tickets sequentially. After each ticket, update the progress log:
