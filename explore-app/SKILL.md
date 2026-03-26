@@ -41,6 +41,7 @@ If `skill-config.md` does not exist or has no Explore App section, use these def
 | Output directory | `exploration` |
 | Progress log | `exploration/PROGRESS.md` |
 | Screenshot format | `png` |
+| Output mode | `tickets` |
 | Ticket prefix | `EX` |
 | Ticket format | `adapted` |
 | Max depth | `5` |
@@ -54,6 +55,7 @@ If `skill-config.md` does not exist or has no Explore App section, use these def
 ### CLI argument overrides
 
 Arguments passed on the command line override `skill-config.md` values:
+- `--mode tickets|user-stories` → overrides Output mode
 - `--ds path/to/file` → overrides Design system ref
 - Any URL argument → the target to crawl
 
