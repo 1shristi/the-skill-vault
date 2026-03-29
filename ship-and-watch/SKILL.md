@@ -8,6 +8,17 @@ Commit changes, push to origin, create a pull request, then monitor CI/CD until 
 
 - `/ship-and-watch` — commit, push, open PR, and monitor CI
 - `/ship-and-watch fix` — skip commit/PR (already exists), just monitor CI on the current PR and fix failures
+- `/ship-and-watch --auto` — run fully autonomously: skip approval steps, auto-apply all CI fixes
+- `/ship-and-watch fix --auto` — monitor and auto-fix CI failures without approval
+
+### Auto Mode
+
+When `--auto` is passed, the skill runs without stopping for user approval:
+- Step 6: Still present the fix plan (for the record), but do NOT ask "Should I apply these fixes?"
+- Step 7: SKIP entirely — proceed directly to Step 8
+- Step 8: Apply ALL proposed fixes automatically
+- Infrastructure issues: auto-rerun failed checks instead of asking
+- Iteration rules still apply (3-cycle limit on same failure still flags and stops)
 
 ---
 
