@@ -11,6 +11,16 @@ Invoke with `/test-and-fix` to auto-detect what's being worked on, or pass a spe
 - `/test-and-fix` — auto-detect from git changes
 - `/test-and-fix src/myproject/kernel/contracts/` — test a specific module/directory
 - `/test-and-fix ORU-7` — test files related to a specific ticket
+- `/test-and-fix --auto` — run fully autonomously: skip approval steps, auto-apply all fixes
+- `/test-and-fix src/myproject/kernel/contracts/ --auto` — combine target with auto mode
+
+### Auto Mode
+
+When `--auto` is passed, the skill runs without stopping for user approval:
+- Step 5: Still present the fix plan (for the record), but do NOT ask "Should I apply these fixes?"
+- Step 6: SKIP entirely — proceed directly to Step 7
+- Step 7: Apply ALL proposed fixes automatically
+- Iteration rules still apply (3-cycle limit on same failure still flags and stops)
 
 ---
 
