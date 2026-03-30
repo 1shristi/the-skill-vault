@@ -322,7 +322,7 @@ Write the review to the ticket, ensuring exactly one review block exists at all 
 |---|-------|--------|
 | 1 | Connects to pipeline goal | Pass |
 | 2 | Fits sprint theme and build order | Pass |
-...all 23 rows...
+...all 24 rows...
 
 **Flags**
 
