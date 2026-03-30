@@ -189,6 +189,7 @@ Evaluate all 23 checks. For each, assign exactly one verdict: **Pass**, **Flag**
 | 21 | SDK version pinned and API verified |
 | 22 | Blast radius documented |
 | 23 | No silent bug introduction |
+| 24 | No built-in service alternative |
 
 **Check 4 — No architecture drift:** Evaluate all three sub-checks. Any single sub-check failure is a Fail on Check 4.
 
