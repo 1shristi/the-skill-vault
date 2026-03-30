@@ -162,7 +162,7 @@ Use the results in Check 24.
 
 ## Step 4: Run the Checklist
 
-Evaluate all 23 checks. For each, assign exactly one verdict: **Pass**, **Flag**, or **Fail**.
+Evaluate all 24 checks. For each, assign exactly one verdict: **Pass**, **Flag**, or **Fail**.
 
 | # | Check |
 |---|-------|
