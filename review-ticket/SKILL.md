@@ -10,7 +10,7 @@ Invoke with an issue identifier: `/review-ticket ORU-7`
 
 Optional flag: `/review-ticket ORU-7 --fix`
 
-- **Without `--fix`:** Audit-only mode. Run the 23-check checklist, present findings, and append a review addendum to the ticket. Does not modify the ticket description.
+- **Without `--fix`:** Audit-only mode. Run the 24-check checklist, present findings, and append a review addendum to the ticket. Does not modify the ticket description.
 - **With `--fix`:** Audit-and-fix mode. Run the checklist. If any checks fail, research the codebase, rewrite the ticket description to pass all checks, then re-verify. The original ticket goal and scope are preserved — only gaps are filled.
 
 If no identifier is provided, ask the user which ticket to review.
@@ -486,7 +486,7 @@ Ask: "Update the ticket with this rewritten description?"
 
 ## Step 7b: Re-verify and Publish
 
-1. Re-run the 23-check checklist against the rewritten description. All checks should now pass. If any still fail, flag them to the user and ask whether to proceed or iterate.
+1. Re-run the 24-check checklist against the rewritten description. All checks should now pass. If any still fail, flag them to the user and ask whether to proceed or iterate.
 
 2. Construct the review addendum (same format as Step 7's addendum) reflecting the post-rewrite checklist results.
 
