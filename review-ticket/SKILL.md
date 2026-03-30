@@ -146,6 +146,18 @@ grep -rn "<function_name>\|<endpoint_path>\|<model_name>" <source-root>
 
 Record every file that references the changed interface. In Check 22, verify that the ticket identifies all consumers and states a migration strategy for breaking changes. In Check 23, verify that all call sites are listed in the Deliverables or explicitly noted as unchanged.
 
+### For tickets that add custom code for an external service workflow
+
+If the ticket writes custom code to handle a common workflow involving an external service (e.g., Clerk, Knock, Supabase, Stripe, etc.), research whether the service already provides a built-in feature, dashboard toggle, or native configuration that accomplishes the same goal without custom code.
+
+1. **Identify the workflow.** What is the ticket's custom code trying to achieve? (e.g., "auto-create an org when a user signs up", "send a notification when X happens", "sync data on event Y")
+2. **Search for built-in alternatives.** Use web search to check the service's documentation and changelog:
+   - `"<service> <workflow description>"` (e.g., `"clerk auto create organization user signup"`)
+   - `"<service> dashboard setting <feature>"`
+3. **Record findings.** Note whether a built-in feature exists, what it does, and whether it fully covers the ticket's requirements or only partially.
+
+Use the results in Check 24.
+
 ---
 
 ## Step 4: Run the Checklist
