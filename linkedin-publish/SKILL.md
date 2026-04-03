@@ -143,6 +143,23 @@ Show the draft to the user with:
 >
 > **Shall I publish this, or would you like to adjust anything?**
 
+## Step 5.5: Save Draft as Markdown
+
+Once the user is satisfied with the draft (after any revisions), ask:
+
+> **Would you like me to save this as a markdown file?**
+
+If the user agrees (or asks to save at any point during drafting), save the post to:
+
+```
+/Users/babajideokusanya/Documents/Projects-with-Babajide/linkedin/YYYY-MM-DD-<slug>.md
+```
+
+- **Date prefix**: Use the current date in `YYYY-MM-DD` format (e.g., `2026-04-01`)
+- **Slug**: A short, lowercase, hyphen-separated description of the post topic (e.g., `claude-code-850m-tokens`, `agent-ops-conversation`, `waterloo-meetup-recap`)
+- **Content**: Save only the post text (no fact-check notes or meta commentary)
+- Always offer this step before moving to publish
+
 ---
 
 ## Step 6: Publish
