@@ -1,10 +1,27 @@
 ---
 name: linkedin-search
 description: Search LinkedIn for posts or people on a topic. Use when the user asks to find posts, see what people are saying about a topic, or search LinkedIn.
-argument-hint: <query> [--location <place>] [--experience <years>] [--type posts|people|companies] [--remote] [--industry <sector>] [--limit N]
+argument-hint: [<query>] [--location <place>] [--experience <years>] [--type posts|people|companies] [--remote] [--industry <sector>] [--limit N] [--live]
 ---
 
 Search LinkedIn using the `link-pulse` CLI with structured filters.
+
+## Step 0: Check for Saved Daily Results
+
+Before running a live search, check if today's results already exist from the daily scheduled job:
+
+```
+~/Documents/linkedin-search-results/YYYY-MM-DD.json
+```
+
+**If the file exists AND no arguments were provided (or arguments match the daily search: canada, product designer, UX designer, 3+):**
+1. Read the file
+2. Parse and present the results using the "Presenting Results" section below
+3. Note at the top: "Showing today's scheduled results (collected at 8am)."
+4. Offer: "Run `/linkedin-search --live` to fetch fresh results instead."
+
+**If the file does NOT exist, or `--live` flag is passed, or the query is different from the daily search:**
+Proceed with a live search as described below.
 
 ## Parsing Arguments
 
@@ -18,11 +35,13 @@ Extract these filters from the user's input. They can be provided as flags or as
 | Remote        | `--remote`            | "remote", "remote-friendly"                      |
 | Industry      | `--industry <sector>` | "fintech", "healthcare", "SaaS"                  |
 | Limit         | `--limit <N>`         | (default: 10)                                    |
+| Live          | `--live`              | "fresh", "live search", "new search"             |
 
 Examples of natural language parsing:
 - `/linkedin-search product designer in SF with 3+ years` → query: "product designer", location: SF, experience: 3+
 - `/linkedin-search remote frontend engineer fintech` → query: "frontend engineer", remote: true, industry: fintech
 - `/linkedin-search --type people UX researcher London` → type: people, query: "UX researcher", location: London
+- `/linkedin-search` (no args) → check for today's daily results first
 
 ## Building the Search Query
 
