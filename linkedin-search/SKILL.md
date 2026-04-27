@@ -11,7 +11,7 @@ Search LinkedIn using the `link-pulse` CLI with structured filters.
 Before running a live search, check if today's results already exist from the daily scheduled job:
 
 ```
-~/Documents/linkedin-search-results/YYYY-MM-DD.json
+~/.local/share/linkedin-search/YYYY-MM-DD.json
 ```
 
 **If the file exists AND no arguments were provided (or arguments match the daily search: canada, product designer, UX designer, 3+):**
